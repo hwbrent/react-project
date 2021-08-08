@@ -1,20 +1,32 @@
 import './App.css';
 import React from 'react';
-import { NavBar, MainBody, WeightConverter, ChartJSLineGraph } from "./components/components.js";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { NavBar, MainBody } from './components/components.js';
+import HomePage from './components/HomePage.js';
+import RoutinesPage from './components/RoutinesPage.js';
+import ProgressPage from './components/ProgressPage.js';
+import SettingsPage from './components/SettingsPage.js';
+
 
 function App() {
   return (
     <>
-    <NavBar
-      pageNames={["Home","Me","Brudda"]}
-      activePage="Home"/>
-    <MainBody
-      leftCol1={<WeightConverter />}
-      leftCol2="World"
-      rightCol1={null}
-      rightCol2="Sup!"/>
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/routines" exact component={RoutinesPage} />
+        <Route path="/progress" exact component={ProgressPage} />
+        <Route path="/settings" exact component={SettingsPage} />
+      </Switch>
+    </Router>
     </>
-  )
+  );
 }
 
 export default App;

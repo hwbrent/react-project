@@ -1,0 +1,28 @@
+Plan for layout of website (name: Gym Buddy?)
+
+Might want to set up API for storing info and stuff
+
+Pages:
+• Home page
+• Manage routines page
+• Progress page -- using Chart.js etc
+• Settings page -- for changing profile details etc
+
+Home page:
+• A welcome page that welcomes you back to the app
+• Gives you a heads-up for your next workout
+• Also might give a tiny visualisation of your progress in the last few weeks
+
+Manage routines:
+• Choose from list of existing plans (like PPL, bro split, etc)
+• Or make your own routine. Choose:
+    • The name of the routine
+    • Which exercises you'll do on which day
+    • How many days a week you'll do it (and perhaps let them specify on which days)
+• Also allow user to create their own exercise. There will be a set of pre-available ones with form instructions and link to form videos, but they can add their own movements if they like
+
+Progress Visualisation:
+• Visualise progress in weight lifted
+• Compare it to data on Weightlifting Strength Standards - https://strengthlevel.com/strength-standards
+• Choose time periods, different lifts, overall powerlifting total (squat + bench + deadlift)
+• Timeline of gym sessions -- Maybe make it like google calendar schedule view? Or make it like a calendar view, and each day where you went to the gym has a thingy you can press that'll give you a little widget of what you did on that day
