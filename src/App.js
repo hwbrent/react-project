@@ -3,15 +3,13 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import { NavBar, MainBody } from './components/components.js';
+import { NavBar } from './components/components.js';
 import HomePage from './components/HomePage.js';
 import RoutinesPage from './components/RoutinesPage.js';
 import ProgressPage from './components/ProgressPage.js';
 import SettingsPage from './components/SettingsPage.js';
-
 
 function App() {
   return (

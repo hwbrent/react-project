@@ -1,3 +1,7 @@
-const date = new Date();
-const dateString = date.toDateString();
-console.log(dateString);
+const obj = 
+{
+    bum:3,
+    tree:4
+};
+
+console.log(obj[0])

@@ -26,3 +26,10 @@ Progress Visualisation:
 • Compare it to data on Weightlifting Strength Standards - https://strengthlevel.com/strength-standards
 • Choose time periods, different lifts, overall powerlifting total (squat + bench + deadlift)
 • Timeline of gym sessions -- Maybe make it like google calendar schedule view? Or make it like a calendar view, and each day where you went to the gym has a thingy you can press that'll give you a little widget of what you did on that day
+
+
+What will a routine look like?
+JSON object
+Fields:
+- days (e.g. push day / pull day / chest day)
+- how often a week (e.g. a PPL would be every three days i.e. twice a week with a rest day. Bro split might be one cycle a week)

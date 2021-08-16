@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MainBody } from './components.js';
+import { MainBody, routine } from './components.js';
+import { csv } from 'd3';
 
 function SignUp(props) {
     const [ name, setName ] = useState("");
@@ -73,26 +74,32 @@ function NextWorkout() {
     Module that shows the user what their next workout is
     Something like:
 
+    Today is MONDAY 10/05/21
+    
+
     Your next workout is on WEDNESDAY 12/05/21
-    Bench Press
-    3 sets x 12 reps
+    Push day
     */
     const date = new Date();
+    const dayOfTheWeek = date.getDay();
     const dateString = date.toDateString();
+    const routineSchedule = routine.scheduling;
+    return JSON.stringify(routineSchedule);
 }
 
 export function HomePage(props) {
+    const [ CSVData, setCSVData ] = useState();
+
     useEffect(() => {
         document.title = "Home";
-    });
+    })
 
-    useEffect(() => { // perhaps use this useEffect for a signin/signup page
-        // render signin/signup page instead of 
-    },[])
     return (
         <>
         <h1>Home Page!!</h1>
-        <MainBody />
+        <p>{CSVData}</p>
+        <MainBody
+            rightCol1={<NextWorkout />} />
         </>
     );
 }

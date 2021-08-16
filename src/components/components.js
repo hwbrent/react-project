@@ -8,6 +8,90 @@ export const pageNames = [
     "Settings"
 ];
 
+/*
+export const routine = {
+    name:"PPL",
+    structure:[
+        "push",
+        "pull",
+        "legs",
+        "rest"
+    ]
+}
+*/
+
+export const routine = {
+    name:"PPL",
+    push: {
+        Bench: {
+            sets: 3,
+            reps: 8
+        },
+        Arnold_Press: {
+            sets: 3,
+            reps: 8
+        },
+        Overhead_Tricep_Extension: {
+            sets: 3,
+            reps: 8
+        },
+        Dumbbell_Incline_Press: {
+            sets: 3,
+            reps: 8
+        }
+    },
+    pull: {
+        Lat_Pulldown: {
+            sets: 3,
+            reps: 8
+        },
+        Cable_Row: {
+            sets: 3,
+            reps: 8
+        },
+        Shrug: {
+            sets: 3,
+            reps: 8
+        },
+        Bicep_Curl: {
+            sets: 3,
+            reps: 8
+        },
+        Lat_Raises: {
+            sets: 3,
+            reps: 8
+        },
+        Cable_Fly: {
+            sets: 3,
+            reps: 8
+        }
+    },
+    legs: {
+        Squat: {
+            sets: 3,
+            reps: 6
+        },
+        Deadlift: {
+            sets: 3,
+            reps: 6
+        },
+        Quad_Extension: {
+            sets: 3,
+            reps: 8
+        },
+        Seated_Leg_Curl: {
+            sets: 3,
+            reps: 8
+        }
+    },
+    scheduling: {
+        1: "push",
+        2: "pull",
+        3: "legs",
+        4: "rest"
+    }
+}
+
 // main frame used for most pages:
 export function MainBody(props) {
     return (
@@ -60,7 +144,7 @@ export function NavBar(props) {
     return ( // can't get the image thingy to work :(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link to="/">
-                <a class="navbar-brand">
+                <a className="navbar-brand">
                     <div className="logo-image">
                         <img src=".../public/navbar-logo.png" className="img-fluid" />
                     </div>
@@ -76,10 +160,3 @@ export function NavBar(props) {
 NavBar.defaultProps = {
     activePage: "Home"
 }
-
-/*
-Use useRef hook
-const selectRef = useRef()
-<select ref = {selectRef} />
-switch (selectRef.current.value)
-*/
