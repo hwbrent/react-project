@@ -1,7 +1,7 @@
-const obj = 
-{
-    bum:3,
-    tree:4
-};
+function print(arg1, arg2, arg3) {
+    console.log(arg1, arg2, arg3);
+}
 
-console.log(obj[0])
+const params = ["Hello", "my", "precious"];
+
+print(...params);

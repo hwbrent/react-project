@@ -1,104 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import { MainBody, routine } from './components.js';
-import { csv } from 'd3';
+// import { csv } from 'd3';
 
-function SignUp(props) {
-    const [ name, setName ] = useState("");
-    const [ password, setPassword ] = useState("");
-    const [ weight, setWeight ] = useState(0);
-    const [ sex, setSex ] = useState();
-    const handleNameChange = ({target}) => {
-        setName(target.value);
-    }
-    const handlePasswordChange = ({target}) => {
-        setPassword(target.value);
-    }
-    const handleWeightChange = ({target}) => {
-        setWeight(target.value);
-    }
-    const handleSexChange = ({target}) => {
-        setSex(target.value);
-    }
-    const handleSubmit = (event) => { // need to deal with data here
-        event.preventDefault();
-        const formResponse = {
-            name: name,
-            password: password,
-            weight: weight,
-            sex: sex ///////////////////////////
-        };
-        alert("Form submitted");
-    }
-    const form = (
-        <>
-        <form onSubmit={handleSubmit}>
-            <label>
-                Name:
-                <input value={name} onChange={handleNameChange} type="text" placeholder="Enter name here" />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input value={password} onChange={handlePasswordChange} type="password" placeholder="Enter password here" />
-            </label>
-            <br />
-            <label>
-                Weight:
-                <input value={weight} onChange={handleWeightChange} type="number" min="0" />
-            </label>
-            <br />
-            <label>
-                Sex:
-                <br />
-                <label>
-                    Male
-                    <input value="Male" onClick={handleSexChange} type="radio" name="sex" />
-                </label>
-                <br />
-                <label>
-                    Female
-                    <input value="Female" onClick={handleSexChange} type="radio" name="sex" />
-                </label>
-            </label>
-            <br />
-            <button type="submit">Submit</button>
-        </form>
-        </>
-    );
 
-    return form;
-}
-
-function NextWorkout() {
+const NextWorkout = () => {
     /*
     Module that shows the user what their next workout is
     Something like:
 
-    Today is MONDAY 10/05/21
-    
-
-    Your next workout is on WEDNESDAY 12/05/21
-    Push day
+    -----------------------------------------------
+    | Today is MONDAY 10/05/21                    |
+    |                                             |
+    | Your next workout is on WEDNESDAY 12/05/21  |
+    | Push day                                    |
+    -----------------------------------------------
     */
     const date = new Date();
-    const dayOfTheWeek = date.getDay();
-    const dateString = date.toDateString();
-    const routineSchedule = routine.scheduling;
-    return JSON.stringify(routineSchedule);
+    // day of the week (number 0-6, Sunday-Saturday) --> date.getDay()
+    // date string --> date.toDateString(); // to be used at top of widget
+    const determiner = (date.getDay() % routine.scheduling.length);
+    const todaysWorkout = routine.scheduling[determiner];
+
+    let nextWorkout;
+
+    console.log(determiner)
+    console.log(todaysWorkout)
+
+    if (todaysWorkout === "rest") {
+        nextWorkout = "Today is a rest day. Enjoy the day off!"
+    } else {
+        const listOfExercises = Object.keys( routine[todaysWorkout] ).map(movement => {
+            return (
+            <li>
+                {movement.replace(/_/g," ")}
+            </li>
+            );
+        })
+        nextWorkout = (
+            <>
+            Your next workout is <b><i>{todaysWorkout.toUpperCase()}</i></b>: <br />
+            <ul>
+                {listOfExercises}
+            </ul>
+            </>
+        );
+    }
+
+    const divStyle = {};
+    
+    const styledDiv = (
+        <div style={null}>
+            Today is <b>{date.toDateString()}</b>  <br />
+            {nextWorkout} <br />
+        </div>
+    );
+
+    return styledDiv;
 }
 
-export function HomePage(props) {
-    const [ CSVData, setCSVData ] = useState();
+const RecentProgressVisualisation = () => {} // Maybe a small calendar/timeline widget to show which days I went to gym and which I didn't
+
+export function HomePage() {
 
     useEffect(() => {
         document.title = "Home";
     })
 
+    const toBring = ["FitBit", "AirPods", "Water bottle", "Face mask", "Towel", "Nike bag", "Shampoo", "Spare clothes"];
+    const listToBring = (
+        <>
+        Don't forget:
+        <ul>
+            {toBring.map(item => {return <li>{item}</li>})}
+        </ul>
+        </>
+    );
+
     return (
         <>
         <h1>Home Page!!</h1>
-        <p>{CSVData}</p>
         <MainBody
+            leftCol1={listToBring}
             rightCol1={<NextWorkout />} />
         </>
     );

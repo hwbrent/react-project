@@ -1,0 +1,258 @@
+{
+    "male": {
+        "50": {
+            "Beginner": 3,
+            "Novice": 8,
+            "Intermediate": 15,
+            "Advanced": 25,
+            "Elite": 37
+        },
+        "55": {
+            "Beginner": 4,
+            "Novice": 9,
+            "Intermediate": 17,
+            "Advanced": 27,
+            "Elite": 39
+        },
+        "60": {
+            "Beginner": 4,
+            "Novice": 10,
+            "Intermediate": 18,
+            "Advanced": 29,
+            "Elite": 42
+        },
+        "65": {
+            "Beginner": 5,
+            "Novice": 11,
+            "Intermediate": 19,
+            "Advanced": 31,
+            "Elite": 44
+        },
+        "70": {
+            "Beginner": 6,
+            "Novice": 12,
+            "Intermediate": 21,
+            "Advanced": 32,
+            "Elite": 46
+        },
+        "75": {
+            "Beginner": 6,
+            "Novice": 13,
+            "Intermediate": 22,
+            "Advanced": 34,
+            "Elite": 48
+        },
+        "80": {
+            "Beginner": 7,
+            "Novice": 14,
+            "Intermediate": 23,
+            "Advanced": 35,
+            "Elite": 49
+        },
+        "85": {
+            "Beginner": 8,
+            "Novice": 15,
+            "Intermediate": 24,
+            "Advanced": 37,
+            "Elite": 51
+        },
+        "90": {
+            "Beginner": 8,
+            "Novice": 15,
+            "Intermediate": 26,
+            "Advanced": 38,
+            "Elite": 53
+        },
+        "95": {
+            "Beginner": 9,
+            "Novice": 16,
+            "Intermediate": 27,
+            "Advanced": 40,
+            "Elite": 54
+        },
+        "100": {
+            "Beginner": 9,
+            "Novice": 17,
+            "Intermediate": 28,
+            "Advanced": 41,
+            "Elite": 56
+        },
+        "105": {
+            "Beginner": 10,
+            "Novice": 18,
+            "Intermediate": 29,
+            "Advanced": 42,
+            "Elite": 57
+        },
+        "110": {
+            "Beginner": 11,
+            "Novice": 19,
+            "Intermediate": 30,
+            "Advanced": 43,
+            "Elite": 59
+        },
+        "115": {
+            "Beginner": 11,
+            "Novice": 20,
+            "Intermediate": 31,
+            "Advanced": 45,
+            "Elite": 60
+        },
+        "120": {
+            "Beginner": 12,
+            "Novice": 20,
+            "Intermediate": 32,
+            "Advanced": 46,
+            "Elite": 61
+        },
+        "125": {
+            "Beginner": 12,
+            "Novice": 21,
+            "Intermediate": 33,
+            "Advanced": 47,
+            "Elite": 63
+        },
+        "130": {
+            "Beginner": 13,
+            "Novice": 22,
+            "Intermediate": 34,
+            "Advanced": 48,
+            "Elite": 64
+        },
+        "135": {
+            "Beginner": 13,
+            "Novice": 23,
+            "Intermediate": 35,
+            "Advanced": 49,
+            "Elite": 65
+        },
+        "140": {
+            "Beginner": 14,
+            "Novice": 23,
+            "Intermediate": 35,
+            "Advanced": 50,
+            "Elite": 66
+        }
+    },
+    "female": {
+        "40": {
+            "Beginner": 2,
+            "Novice": 5,
+            "Intermediate": 9,
+            "Advanced": 15,
+            "Elite": 23
+        },
+        "45": {
+            "Beginner": 2,
+            "Novice": 5,
+            "Intermediate": 10,
+            "Advanced": 17,
+            "Elite": 24
+        },
+        "50": {
+            "Beginner": 2,
+            "Novice": 6,
+            "Intermediate": 11,
+            "Advanced": 18,
+            "Elite": 26
+        },
+        "55": {
+            "Beginner": 3,
+            "Novice": 6,
+            "Intermediate": 12,
+            "Advanced": 19,
+            "Elite": 27
+        },
+        "60": {
+            "Beginner": 3,
+            "Novice": 7,
+            "Intermediate": 13,
+            "Advanced": 20,
+            "Elite": 28
+        },
+        "65": {
+            "Beginner": 4,
+            "Novice": 8,
+            "Intermediate": 13,
+            "Advanced": 21,
+            "Elite": 29
+        },
+        "70": {
+            "Beginner": 4,
+            "Novice": 8,
+            "Intermediate": 14,
+            "Advanced": 22,
+            "Elite": 30
+        },
+        "75": {
+            "Beginner": 4,
+            "Novice": 9,
+            "Intermediate": 15,
+            "Advanced": 22,
+            "Elite": 31
+        },
+        "80": {
+            "Beginner": 5,
+            "Novice": 9,
+            "Intermediate": 15,
+            "Advanced": 23,
+            "Elite": 32
+        },
+        "85": {
+            "Beginner": 5,
+            "Novice": 10,
+            "Intermediate": 16,
+            "Advanced": 24,
+            "Elite": 33
+        },
+        "90": {
+            "Beginner": 5,
+            "Novice": 10,
+            "Intermediate": 17,
+            "Advanced": 25,
+            "Elite": 34
+        },
+        "95": {
+            "Beginner": 6,
+            "Novice": 10,
+            "Intermediate": 17,
+            "Advanced": 25,
+            "Elite": 35
+        },
+        "100": {
+            "Beginner": 6,
+            "Novice": 11,
+            "Intermediate": 18,
+            "Advanced": 26,
+            "Elite": 36
+        },
+        "105": {
+            "Beginner": 6,
+            "Novice": 11,
+            "Intermediate": 18,
+            "Advanced": 27,
+            "Elite": 36
+        },
+        "110": {
+            "Beginner": 7,
+            "Novice": 12,
+            "Intermediate": 19,
+            "Advanced": 27,
+            "Elite": 37
+        },
+        "115": {
+            "Beginner": 7,
+            "Novice": 12,
+            "Intermediate": 19,
+            "Advanced": 28,
+            "Elite": 38
+        },
+        "120": {
+            "Beginner": 7,
+            "Novice": 12,
+            "Intermediate": 20,
+            "Advanced": 28,
+            "Elite": 38
+        }
+    }
+}

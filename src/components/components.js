@@ -1,95 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 
 export const pageNames = [
     "Home",
+    "Log Progress",
+    "View Progress",
     "Routines",
-    "Progress",
     "Settings"
 ];
 
-/*
 export const routine = {
     name:"PPL",
-    structure:[
+    push: {
+        Bench: {sets: 3, reps: 8},
+        Arnold_Press: {sets: 3, reps: 8},
+        Overhead_Tricep_Extension: {sets: 3, reps: 8},
+        Dumbbell_Incline_Press: {sets: 3, reps: 8 }
+    },
+    pull: {
+        Lat_Pulldown: {sets: 3, reps: 8},
+        Cable_Row: {sets: 3, reps: 8},
+        Shrug: {sets: 3, reps: 8},
+        Bicep_Curl: {sets: 3, reps: 8},
+        Lat_Raises: {sets: 3, reps: 8},
+        Cable_Fly: {sets: 3, reps: 8}
+    },
+    legs: {
+        Squat: {sets: 3, reps: 6},
+        Deadlift: {sets: 3, reps: 6},
+        Quad_Extension: {sets: 3, reps: 8},
+        Seated_Leg_Curl: {sets: 3, reps: 8 }
+    },
+    scheduling: [
         "push",
         "pull",
         "legs",
         "rest"
     ]
-}
-*/
-
-export const routine = {
-    name:"PPL",
-    push: {
-        Bench: {
-            sets: 3,
-            reps: 8
-        },
-        Arnold_Press: {
-            sets: 3,
-            reps: 8
-        },
-        Overhead_Tricep_Extension: {
-            sets: 3,
-            reps: 8
-        },
-        Dumbbell_Incline_Press: {
-            sets: 3,
-            reps: 8
-        }
-    },
-    pull: {
-        Lat_Pulldown: {
-            sets: 3,
-            reps: 8
-        },
-        Cable_Row: {
-            sets: 3,
-            reps: 8
-        },
-        Shrug: {
-            sets: 3,
-            reps: 8
-        },
-        Bicep_Curl: {
-            sets: 3,
-            reps: 8
-        },
-        Lat_Raises: {
-            sets: 3,
-            reps: 8
-        },
-        Cable_Fly: {
-            sets: 3,
-            reps: 8
-        }
-    },
-    legs: {
-        Squat: {
-            sets: 3,
-            reps: 6
-        },
-        Deadlift: {
-            sets: 3,
-            reps: 6
-        },
-        Quad_Extension: {
-            sets: 3,
-            reps: 8
-        },
-        Seated_Leg_Curl: {
-            sets: 3,
-            reps: 8
-        }
-    },
-    scheduling: {
-        1: "push",
-        2: "pull",
-        3: "legs",
-        4: "rest"
-    }
 }
 
 // main frame used for most pages:
@@ -116,38 +63,27 @@ export function NavBar(props) {
     - activePage (string) --> the name of the page that's the active page e.g. "Home"
     */
     const pageNamesList = pageNames.map((pageName) => {
-        if (pageName.includes(" ")) {
-            pageName.replace(" ","");
-        }
-        const path = (pageName == "Home") ? `/` : `/${pageName.toLowerCase()}`;
+        const path = (pageName === "Home")
+            ? `/`
+            : `/${pageName.replace(/ /g,"").toLowerCase()}`;
 
-        let li;
-        if (pageName === props.activePage) {
-            li = (
+        const className = (pageName === props.activePage)
+            ? "nav-item active"
+            : "nav-item";
+        const li = (
             <Link to={path}>
-                <li className="nav-item active">
+                <li className={className}>
                     <a className="nav-link">{pageName}</a>
                 </li>
             </Link>
-            );
-        } else {
-            li = (
-            <Link to={path}>
-                <li className="nav-item">
-                    <a className="nav-link">{pageName}</a>
-                </li>
-            </Link>
-            );
-        }
+        );
         return li;
     });
     return ( // can't get the image thingy to work :(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link to="/">
                 <a className="navbar-brand">
-                    <div className="logo-image">
-                        <img src=".../public/navbar-logo.png" className="img-fluid" />
-                    </div>
+                    <img src="https://images.app.goo.gl/XXCP7n1HV1xAWG5n7" className="img-fluid" alt="logo" />
                 </a>
             </Link>
             <ul className="navbar-nav">

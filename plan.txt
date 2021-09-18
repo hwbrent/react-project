@@ -1,6 +1,47 @@
-Plan for layout of website (name: Gym Buddy?)
+Plan for app (name: Gym Buddy?)
 
-Might want to set up API for storing info and stuff
+To do:
+- Fix <RemoveLog />
+
+For the routines thing, I might want to have a boolean-valued column in the table
+indicating which movements are currently being used in the routine.
+E.g. for push day you might have pull-ups in the DB as a push day movement, but you're not currently using it
+So if you're on the LogProgress page
+
+
+Functionality I want the app to have:
+
+Add movement:
+Edit movement:
+- For a given movement, edit the details that the DB contains
+Remove movement:
+- Delete the movement from the DB
+- You'd have to be careful to make sure that there isn't any existing data that references that movement
+
+Add routine:
+- Data => routine name, routine "days" (i.e. Push, Pull etc), movements pertaining to those "days"
+- 
+
+Edit routine:
+- edit routine name
+- edit the "days" => add days, edit existing day names, delete days
+- amend movements associated with each "day"
+
+Remove routine:
+
+Add log:
+- Concept is simple - log your workout progress on a given day
+- have a dropdown in the sidebar where you choose a "day" you're logging progress for
+- Data => date, movement name, weight, sets, reps, space for any notes on how the workout was
+- Wouldn't want the log to depend on the movement name in case the movement is deleted from the DB
+
+Edit log:
+Remove log:
+
+
+
+
+
 
 Pages:
 • Home page
@@ -12,6 +53,8 @@ Home page:
 • A welcome page that welcomes you back to the app
 • Gives you a heads-up for your next workout
 • Also might give a tiny visualisation of your progress in the last few weeks
+• Remind user to take phone, mask, headphones, water, towel (and also lifting straps depending on the day)
+• Maybe implement a button saying "Been to the gym today?", and when you press it it records that on that day you went to the gym. Could also track how many days total user has been to the gym and what their current streak is
 
 Manage routines:
 • Choose from list of existing plans (like PPL, bro split, etc)
@@ -27,9 +70,14 @@ Progress Visualisation:
 • Choose time periods, different lifts, overall powerlifting total (squat + bench + deadlift)
 • Timeline of gym sessions -- Maybe make it like google calendar schedule view? Or make it like a calendar view, and each day where you went to the gym has a thingy you can press that'll give you a little widget of what you did on that day
 
+Riccardo also suggested maybe implementing a feature where people can check their form
+• this could just be a little gif or video showing how to do the movement
+• or maybe in the future once I get competent enough at coding it could be some kind of smart camera scanner thing that scans their body
 
-What will a routine look like?
-JSON object
-Fields:
-- days (e.g. push day / pull day / chest day)
-- how often a week (e.g. a PPL would be every three days i.e. twice a week with a rest day. Bro split might be one cycle a week)
+Backend:
+• Express
+
+Database:
+• PostgreSQL
+    - https://expressjs.com/en/guide/database-integration.html#postgresql
+    - https://github.com/vitaly-t/pg-promise
