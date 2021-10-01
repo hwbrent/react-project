@@ -1,0 +1,457 @@
+Week 1 - 25/04/21
+
+PUSH
+('Incline Dumbbell Press', 10, 3, 8)
+('Incline Dumbbell Press', 14, 3, 8)
+('Bench Press', 10, 4, 8)
+('DB squeeze press', 14, 3, 8)
+('DB squeeze press', 14, 3, 8, 'form wasn’t great - do this again')
+('Arnold Press', 14, 3, 8)
+('Arnold Press', 8, 5, 8, 'form crap. Do one each side at a time ie not both at once')
+('Arnold Press', 14, 1, 6, 'Stick to 10kg')
+('Arnold Press', 10, 5, 8)
+('Overhead Tricep Extension', 14, 3, 8)
+('Overhead Tricep Extension', 14, 3, 8, 'form not great')
+
+PULL
+('Bent Over Dumbbell Row', 16, 3, 8)
+('Dumbbell Lat Raise', 6, 3, 8, 'form struggled at end')
+('Shrug', 20, 3, 8)
+('Bicep Curl', 12, 3, 8)
+('Lat Pulldown', 39, 4, 8)
+
+LEGS
+('Barbell Deadlift', 15, 3, 6)
+('Calf Raises', 20, 3, 8)
+('Barbell Squat', 15, 3, 6)
+
+
+Week 2 - 10/05/21
+
+PUSH
+('Bench Press', 10, 4, 8)
+('Bench Press', 15, 3, 8, 'only 5 reps last set')
+('DB squeeze press', 12, 3, 6)
+('DB squeeze press', 12, 4, 8)
+('Arnold Press', 12, 3, 8)
+('Arnold Press', 14, 3, 6)
+('Overhead Tricep Extension', 14, 4, 8)
+('Overhead Tricep Extension', 16, 3, 8)
+('cable fly', 8.75, 3, 8)
+
+PULL
+('Bent Over Dumbbell Row', 16, 4, 8)
+('Lat raises', 6, 4, 8)
+('Lat raises', 8, 3, 8, 'form not great')
+('Shrug', 20, 4, 8)
+('Shrug', 22, 3, 8)
+('Bicep Curl', 14, 3, 8)
+('Bicep Curl', 14, 4, 8)
+('Lat Pulldown', 47, 3, 8)
+('Lat Pulldown', 47, 4, 8)
+('cable fly', 8.75, 4, 8)
+('Cable row', 28.75, 4, 8)
+
+LEGS
+('Barbell Deadlift', 20, 3, 6, 'Could probs do 35 or 40 next time')
+('Barbell Deadlift', 30, 3, 6)
+('Calf Raises', 30, 3, 8)
+('Calf Raises', 35, 3, 8)
+('Barbell Squat', 20, 3, 6)
+('Barbell Squat', 10, 1, 6)
+('Barbell Squat', 15, 1, 4)
+('Barbell Squat', 20, 1, 4)
+('Quad Extensions', 45, 3, 8)
+('Quad Extensions', 42.5, 4, 8)
+('Seated Leg Curl', 35, 3, 8)
+('Seated Leg Curl', 30, 3, 8)
+
+
+Week 3 - week starting 17/05/21
+
+PUSH
+('Bench Press', 15, 4, 8, 'only 4 reps last set')
+('Incline Dumbbell Press', 12, 4, 8)
+('Arnold Press', 14, 4, 6, 'struggled on left arm')
+('Overhead Tricep Extension', 18, 3, 8, 'only bc someone else had 16, only managed 4 on last set')
+
+
+Week 4 - week starting 24/05/21
+
+PULL
+('cable row', 31.25, 3, 8)
+('Lat raises', 6, 5, 8)
+('Lat raises', 8, 3, 8)
+('Shrug', 24, 3, 8)
+('Shrug', 26, 3, 8)
+('Bicep Curl', 16, 4, 8, 'only 5-6 reps on last 2 sets')
+('Bicep Curl', 16, 2, 8)
+('Bicep Curl', 12, 3, 8, 'Went down bc trying to improve form and muscle activation')
+('Lat Pulldown', 40, 3, 8, 'w/ much better form')
+('Lat Pulldown', 40, 4, 8)
+('cable fly', 8.75, 4, 8)
+('cable fly', 11.25, 3, 8)
+
+PUSH
+('Bench', 15, 4, 8, 'only 4 reps last set')
+('Bench', 15, 4, 8)
+('DB incline press', 14, 3, 8)
+('DB incline press', 16, 4, 8)
+('Arnold Press', 14, 4, 6, 'struggled on left side')
+('Arnold Press', 12, 3, 8, 'form much better')
+('Overhead Tricep Extension', 16, 4, 8, 'really good form')
+
+Week 5 - week starting 31/05/21
+
+PUSH
+('Bench', 20, 4, 8, 'Machine, not free weights')
+('DB incline press', 18, 4, 8)
+('Arnold Press', 12, 5, 8, 'great form, very controlled')
+('Overhead Tricep Extension', 16, 4, 8, 'really good form')
+
+PULL
+('Cable Row', 33.75, 3, 8)
+('Lat Raises', 8, 4, 8)
+('Lat Raises', 8, 5, 8)
+('Shrug', 28, 3, 8)
+('Shrug', 28, 4, 8)
+('Bicep Curl', 12, 4, 8, 'Proper proper form')
+('Lat Pulldown', 47, 3, 8, 'didn’t feel much activation')
+('Lat Pulldown', 47, 3, 8, 'felt unusually hard today')
+('Cable Fly', 11.25, 4, 8)
+('Cable Fly', 13.75, 3, 8)
+
+
+Week 6 - starting 07/06/21
+
+LEGS
+('Barbell Deadlift', 40, 3, 6)
+('Barbell Deadlift', 35, 4, 6, 'focusing on form')
+('Calf Raises', 35, 3, 8)
+('Calf Raises', 35, 4, 8)
+('Barbell Squat', 20, 4, 6)
+('Barbell Squat', 20, 4, 6, 'maybe lower weight to focus on form')
+('Quad Extensions', 42.5, 3, 8)
+('Quad Extensions', 42.5, 4, 8, 'amazing form')
+('Seated Leg Curl', 32.5, 3, 8)
+('Seated Leg Curl', 33.75, 4, 8, 'go lighter next time')
+
+PUSH
+('Bench', 15, 4, 8, 'really good form & activation')
+('Bench', 17.5, 3, 8, 'great form again')
+('DB incline press', 20, 3, 6, 'Go down weight next time')
+('DB incline press', 18, 4, 8, 'great form')
+('Arnold Press', 14, 3, 8)
+('Arnold Press', 14, 4, 8)
+('Overhead Tricep Extension', 16, 4, 8, 'really good form')
+('Overhead Tricep Extension', 18, 3, 8, 'great form')
+
+PULL
+('Cable Row', 33.75, 3, 8)
+('Cable Row', 33.75, 4, 8)
+('Lat Raises', 8, 5, 8)
+('Lat Raises', 10, 3, 8, '8 then 6 then 6 proper reps')
+('Shrug', 30, 3, 8)
+('Shrug', 30, 4, 8)
+('Bicep Curl', 14, 3, 8, 'Form pretty shit')
+('Bicep Curl', 14, 3, 8, 'Much better form')
+('Lat Pulldown', 40, 4, 8)
+('Lat Pulldown', 40, 5, 8, 'Was relatively easy')
+('Cable Fly', 13.75, 3, 8)
+('Cable Fly', 13.75, 4, 8)
+
+
+Week 7: week starting 21/06/21		signed up at Puregym in Cambridge
+
+PUSH
+('Bench', 15, 5, 8)
+('DB incline press', 18, 3, 8)
+('Arnold Press', 14, 2, 8, 'Only had time for 2 sets')
+('Overhead Tricep Extension', 18, 3, 8)
+
+PULL
+('Cable Row', 39, 1, 8)
+('Cable Row', 36.5, 2, 8)
+('Lat Raises', 10, 3, 8, 'Only 6 proper proper reps each time')
+('Shrug', 28, 3, 8, 'Grip failed me')
+('Bicep Curl', 14, 3, 8, 'Great form')
+('Lat Pulldown', 45, 3, 8, 'Didn’t really feel it working my lats')
+('Cable Fly', 14.7, 3, 8)
+
+LEGS
+('Barbell Deadlift', 40, 3, 6)
+('Barbell Squat', 20, 3, 6)
+('Quad Extensions', 46, 3, 8)
+('Seated Leg Curl', 28.4, 3, 8)
+
+
+Week 8 - week starting 28/06/21
+
+PUSH
+('Bench', 16.25, 2, 8)
+('Bench', 15, 2, 8)
+('DB incline press', 18, 4, 8)
+('Arnold Press', 14, 3, 8)
+('Overhead Tricep Extension', 18, 4, 8)
+
+PULL
+('cable row', 39, 3, 8)
+('Lat raises', 9, 4, 8)
+('Shrug', 30, 4, 8)
+('Bicep Curl', 14, 4, 8)
+('Lat Pulldown', 45, 4, 8)
+(Same day) 'cable fly', 14.7, 1, 8
+(Same day) 'cable fly', 12.5, 3, 8
+
+LEGS
+('Barbell Deadlift', 40, 3, 6, 'Again. Couldn’t increment properly. Plus I struggled with form')
+('Barbell Squat', 22.5, 3, 6)
+('Quad Extensions', 48.3, 3, 8, 'Maybe go lower next time')
+('Seated Leg Curl', 28.4, 3, 8)
+
+
+Week 9 - week starting 05/07/21
+
+LEGS
+'Barbell Deadlift', 47.5, 3, 6
+(These three on the same day) 'Barbell Deadlift', 47.5, 1, 4
+(These three on the same day) 'Barbell Deadlift', 42.5, 2, 6
+(These three on the same day) 'Barbell Deadlift', 40, 1, 6
+'Barbell Squat', 25, 3, 4
+'Barbell Squat', 22.5, 4, 4
+'Quad Extensions', 48.3, 3, 8, 'Maybe go lower next time'
+'Quad Extensions', 47.3, 4, 8
+'Seated Leg Curl', 28.4, 3, 8
+'Seated Leg Curl', 28.4, 4, 8
+
+PUSH
+('Bench', 17.5, 4, 8)
+('DB incline press', 20, 3, 8)
+('Arnold Press', 16, 3, 6)
+('Overhead Tricep Extension', 20, 3, 7)
+
+
+Week 12 - week beginning 26/07/21
+
+PUSH
+('Bench', 16.25, 4, 8)
+('Bench', 17.5, 4, 8)
+('DB incline press', 18, 4, 8)
+('DB incline press', 20, 3, 7)
+('Arnold Press', 14, 4, 8, 'Great form')
+('Arnold Press', 16, 3, 8)
+('Overhead Tricep Extension', 18, 4, 8)
+('Overhead Tricep Extension', 20, 3, 8)
+
+PULL
+('cable row', 45, 3, 8, 'Probably definitely too much weight. Go lower next time')
+('Lat raises', 10, 3, 8)
+('Shrug', 30, 4, 8)
+('Bicep Curl', 16, 3, 8)
+('Lat Pulldown', 45, 4, 8)
+('cable fly', 12.5, 4, 8)
+
+LEGS
+('Barbell Deadlift', 40, 4, 8)
+('Barbell Squat', 20, 4, 6, 'Can’t really remember tbh')
+('Quad Extensions', 54, 3, 8)
+('Seated Leg Curl', 32, 3, 8)
+
+
+Week 13 - week beginning 02/08/21
+
+PUSH
+('Bench', 18.75, 4, 8)
+('Incline Dumbbell Press', 20, 3, 7, 'Maybe go down weight')
+('Arnold Press', 16, 4, 8)
+('Overhead Tricep Extension', 20, 3, 8)
+
+PULL
+('cable row', 45, 3, 8, 'Probably definitely too much weight. Go lower next time')
+('Lat raises', 10, 4, 8)
+('Shrug', 30, 4, 8)
+('Bicep Curl', 16, 4, 8)
+('Lat Pulldown', 47.3, 3, 8)
+('cable fly', 14.7, 4, 8)
+
+LEGS
+('Barbell Deadlift', 45, 3, 6)
+('Barbell Squat', 22.5, 3, 6, 'Don’t actually know if form was good. Might be feeling it a little too much in my lower back')
+('Quad Extensions', 58.6, 4, 8)
+
+
+Week beginning 09/08/21
+
+PUSH
+('Bench', 20, 3, 8)
+('DB incline press', 18, 3, 8)
+('Arnold Press', 18, 3, 8)
+('Tricep push down', 23, 3, 8)
+
+
+Week beginning 16/08/21
+
+PUSH
+('Bench Press', 22.5, 3, 7)
+('DB incline press', 18, 3, 8)
+('Arnold Press', 18, 4, 7)
+('Tricep push down', 23, 4, 8)
+
+LEGS
+('Barbell Deadlift', 40, 3, 6)
+('Barbell Squat', 20, 3, 6, 'Really need to go back to basics, have 5-10 on each side and focus really hard on form. Dont let hips go up before rest of body. Focus on not getting butt wink')
+('Quad Extensions', 58.6, 4, 8)
+('Seated Leg Curl', 32, 4, 8)
+
+PULL
+('Cable Row', 41.3, 3, 8)
+('Dumbbell Lat Raises', 10, 4, 8)
+('Shrug', 32, 3, 8, 'didn’t feel much activation')
+('Bicep Curl', 18, 3, 8, 'only really like 5-6 decent reps per set')
+('Lat Pulldown', 49.6, 3, 8, 'form wasn’t great, didn’t feel much activation')
+('Cable Fly', 17.0, 3, 8)
+('Assisted Pull Up', 64, 3, 8)
+
+
+Week beginning 23/08/21
+
+LEGS:
+('Barbell Deadlift', 45, 3, 6)
+('Calf Raises', 20, 3, 8, 'on upside down hack squat machine thingy')
+('Barbell Squat', 15, 4, 6, 'Felt better. Focused a lot more on activating my quads and flutes and hammies. Maybe ask someone like George Ofarrell for help')
+('Barbell Squat', 20, 3, 6, 'MUCH much better. Really focused on bracing my core properly and focusing on using my quads/glutes to push')
+('Quad Extensions', 58.6, 4, 8)
+('Seated Leg Curl', 32, 4, 8)
+('Seated Leg Curl', 34.3, 3, 8)
+
+PULL:
+('cable row', 39, 3, 8, 'activation much better at this weight')
+('Lat raises', 9, 3, 8 'much better form than when using 10s')
+('Shrug', 26, 3, 8, 'can feel it a lot more definitely')
+('Bicep Curl', 18, 2, 8)
+('Bicep Curl', 16, 3, 8, 'activation much better with 16. Go 16 for 5 next time')
+('Lat Pulldown', 45, 3, 8, 'try 39 for 3 next time, REALLY focusing properly on form')
+('Assisted Pull Up', 64, 3, 8)
+
+PUSH:
+('Bench', 22.5, 3, 8, 'too many warmup sets')
+('Arnold Press', 18, 3, 8)
+('Arnold Press', 16, 3, 8, 'taking it slowly but steady, focusing on controlled decent form')
+('Tricep push down', 23, 4, 8)
+('Tricep push down', 25.3, 3, 8)
+('Cable Fly', 12.5, 3, 8, 'only managed 6 reps in last set')
+
+
+Week beginning 30/08/21
+
+PUSH
+('Bench', 17.5, 4, 8, 'form great again. Took it really slow and steady, felt it in my chest a lot')
+('Incline Dumbbell press', 18, 3, 6)
+('Arnold Press', 18, 3, 6)
+('Tricep Pushdown', 25.3, 4, 8)
+('Cable Fly', 12.5, 3, 8, 'only managed 6 reps in last set')
+
+PULL
+('cable row', 41.3, 3, 8)
+('Lat raises', 8, 4, 8, 'couldnt find 9s…?')
+('Shrug', 28, 3, 8)
+('Bicep Curl', 16, 3, 6, 'Didnt feel activation as much as last time')
+('Lat Pulldown', 41.3, 4, 8)
+('Assisted Pull Up', 59, 3, 8)
+
+LEGS
+('Barbell Deadlift', 35, 3, 6)
+('Calf Raises', 25, 3, 8)
+('Barbell Squat', 22.5, 3, 6)
+('Quad Extensions', 59, 3, 8)
+('Seated Leg Curl', 36.6, 3, 8)
+
+
+Week beginning 06/09/21
+
+PUSH Exercise
+('Bench', 18.75, 3, 6, 'only 6 reps in last set, and form wasnt amazing')
+('Bench', 18.75, 3, 8, 'great form this time')
+('DB incline press', 18, 4, 6)
+('DB incline press', 18, 4, 8)
+('Arnold Press', 18, 3, 6)
+('Arnold Press', 18, 3, 8)
+('Tricep push down', 27, 3, 8, 'only got like 5 good reps on last set')
+('Tricep push down', 27, 3, 8)
+('Cable Fly', 12.5, 3, 8, 'only managed 6 reps in last set')
+('Cable Fly', 12.5, 3, 8)
+
+PULL
+('cable row', 41.3, 4, 8)
+('Lat raises', 9, 3, 8)
+('Shrug', 28, 4, 8)
+('Bicep Curl', 16, 4, 8)
+('Lat Pulldown', 42.4, 4, 8)
+('Assisted Pull Up', 59, 3, 8)
+
+LEGS:
+('Barbell Deadlift', 40, 4, 6, 'really focused on bracing core. This made it way easier. Go for at least 45 next time')
+('Barbell Squat', 25, 3, 6)
+('Quad Extensions', 61.3, 3, 8)
+('Seated Leg Curl', 39, 3, 8, 'didnt feel much activation in left hammie')
+
+
+Week beginning 13/09/21
+
+PULL:
+('Cable Row', 45, 3, 8)
+('Dumbbell Lat Raises', 9, 3, 8)
+('Shrug', 30, 3, 8)
+('Bicep Curl', 16, 4, 8, 'Form not amazing I don’t think')
+('Lat Pulldown', 43.5, 3, 8)
+('Assisted Pull Up', 59, 3, 8)
+
+LEGS:
+('Barbell Deadlift', 40, 4, 8)
+('Barbell Squat', 25, 3, 6)
+('Quad Extensions', 62.4, 3, 8)
+('Seated Leg Curl', 39, 3, 8, 'didnt feel much activation in left hammie')
+
+
+Week beginning 20/09/21:
+
+PUSH - '2021-09-20'
+(‘Arnold Press’, '2021-09-20', 18, 3, 8)
+(‘Bench Press’, '2021-09-20', 20, 3, 8)
+(‘Tricep Pushdown’, '2021-09-20', 27, 4, 8)
+(‘Cable Fly’, '2021-09-20', 12.5, 4, 8)
+
+PULL - '21-09-21'
+(‘Lat Pulldown’, '2021-09-21', 45, 3, 8)
+(‘Cable Row’, '2021-09-21', 45, 4, 8)
+(‘Dumbbell Shrug’, '2021-09-21', 30, 4, 8)
+(‘Dumbbell Bicep Curl’, '2021-09-21', 18, 3, 8, ‘Did 8, 8, 6 reps’)
+(‘Dumbbell Lat Raise’, '2021-09-21', 10, 3, 6, ‘A bit too easy? Form might have been off’)
+(‘Assisted Pull Up’, '2021-09-21', 54, 3, 8)
+
+LEGS '2021-09-23'
+(’Barbell Squat’, '2021-09-23', 25, 4, 6, ‘Form felt decent, stance slightly wider and squeezed my butt instead of focusing on my quads. I felt like that worked better’)
+(‘Barbell Deadlift’, '2021-09-23', 42.5, 3, 6)
+(‘Quad Extensions’, '2021-09-23', 62.4, 4, 8)
+(‘Seated Leg Curl’, '2021-09-23', 41.3, 3, 8)
+(‘Calf Raises’, '2021-09-23', 25, 4, 8)
+
+PUSH - '2021-09-24'
+(‘Arnold Press’, '2021-09-24', 18, 4, 8)
+(‘Bench Press’, '2021-09-24', 20, 4, 8)
+('Incline Dumbbell Press', '2021-09-24', 20, 3, 8)
+
+LEGS - '2021-09-26'
+(’Barbell Squat’, '2021-09-26', 27.5, 3. 6, ‘Took video and form looked pretty decent’)
+(‘Barbell Deadlift’, '2021-09-26', 42.5, 4, 6)
+(‘Quad Extensions’, '2021-09-26', 63.5, 3, 8 )
+(‘Seated Leg Curl’, '2021-09-26', 41.3, 4, 8)
+
+
+Week beginning 27/09/21
+
+PUSH
+(‘Bench Press’, ‘2021-09-29’, 21.25, 3, 8)
+(‘Arnold Press’, ‘2021-09-29’, 20, 3, 6)
+(‘Incline Dumbbell Press’, ‘2021-09-29’, 20, 4, 8)
+(‘Cable Fly’, ‘2021-09-29’, 14.7, 2, 6)

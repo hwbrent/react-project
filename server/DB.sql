@@ -1,3 +1,6 @@
+-- terminal command to open the test database:
+-- /Applications/Postgres.app/Contents/Versions/13/bin/psql -p2468 "test"
+
 -- CREATE DATABASE {DB name here}; -- creates a DB
 
 /*
@@ -69,3 +72,5 @@ CREATE TABLE routine_days_and_names(
     parent_day_name text,
     movement_name text REFERENCES movements (movement_name)
 );
+
+INSERT INTO logs(movement_name, date, weight, sets_completed, reps_completed, notes) VALUES

@@ -1,12 +1,36 @@
 const express = require('express');
 const app = express();
 app.use(express.static('src'));
-// app.use(express.urlencoded());
 app.use(express.json()); // Parse URL-encoded enquiries
 const cors = require('cors');
 app.use(cors());
+require("dotenv").config();
 
 const pool = require('./DBConfig.js');
+
+function timeAdjust(dateString, h) { // for some reason the date pulled from the API is adjusted (I think because of British Summer Time) so this corrects that
+    const addHoursOperation = new Date(dateString).getTime() + (h*60*60*1000);
+    const newDate = new Date(addHoursOperation);
+    return newDate.toISOString().slice(0,10);
+}
+
+function rectifyLogsDate(logs) {
+    let out = [];
+    for (let log of logs) {
+        let copy = Object.assign({}, log);
+        copy.date = timeAdjust(log.date, 3);
+        out.push(copy);
+    }
+    return out;
+}
+
+function removeObjectKeyValuePairs(obj, keys) {
+    const out = {};
+    for (let [key, value] of Object.entries(obj)) {
+        if (keys.includes(key) === false) out[key] = value;
+    }
+    return out;
+}
 
 app.get('/', function (req, resp) {
     resp.send("Welcome to the gym buddy API. Please make yourself feel at home <3")
@@ -150,7 +174,7 @@ app.get('/get/routinenames', async function (req, resp) {
         console.error(error.message);
         resp.send(error.message);
     }
-})
+});
 
 app.get('/get/routine/:routine_name', async function (req, resp) {
     // Not sure if more referential integrity would improve the efficiency of this...?
@@ -214,10 +238,9 @@ app.get('/get/routine/:routine_name', async function (req, resp) {
         console.error(error.message);
         resp.send(error.message);
     }
-})
+});
 
 app.post('/post/addroutine', async function (req, resp) {
-     
     /*
     req.body should look something like:
         {
@@ -268,23 +291,12 @@ app.post('/post/addroutine', async function (req, resp) {
     } catch (error) {
         resp.send(error.message);
     }
-})
+});
 
 app.put('/put/editroutine', async function (req, resp) {
-    const {old_routine, edited_routine} = req.body;
-
-    async function routine_days_and_movements() {
-
-    }
-
-    /*
-    routine_days_and_movements:
-    - delete all the rows with movements that WERE in the routine but now AREN'T
-    - add new rows with movements that WEREN'T in the routine before but not ARE
-    */
-
+    //
     resp.send(`Bam`);
-})
+});
 
 app.delete('/delete/routine', async function (req, resp) {
     /*
@@ -343,54 +355,87 @@ app.delete('/delete/routine', async function (req, resp) {
         console.error(error.message);
         resp.send(error.message, "please try again");
     }
-})
+});
 
 //////////////////
 ////// LOGS //////
 //////////////////
 app.get('/get/alllogs', async function (req, resp) {
-     
+    /*
+    Array of objects. Example object:
+    {
+        "log_id":1,
+        "movement_name":"Barbell Squat",
+        "date":"2021-08-30T23:00:00.000Z",
+        "weight":"22.5",
+        "sets_completed":3,
+        "reps_completed":6,
+        "notes":null
+    }
+    */
     try {
         const response = await pool.query("SELECT * FROM logs");
-        
         resp.json(response.rows);
     } catch (error) {
         console.error(error.message);
-        
         resp.json(error.message);
     }
-})
+});
 
-app.post('/post/logprogress', async function (req, resp) { // NOT FINISHED
-    const body = req.body;
-    for (let entry of Object.entries(body)) {
-        const queryString = (entry[1].notes === " ")
-            ? "INSERT INTO logs($1,$3,$5,$7,$9) VALUES($2,$4,$6,$8,$10)"
-            : "INSERT INTO logs($1,$3,$5,$7,$9,$11) VALUES($2,$4,$6,$8,$10,$12)";
-        const queryParams = (entry[1].notes === " ")
-            ? [
-                "movement_name", entry[0], // $1, $2
-                "date", entry[1].date, // $3, $4
-                "weight", entry[1].weight, // $5, $6
-                "sets_completed", entry[1].sets, // $7, $8
-                "reps_completed", entry[1].reps // $9, $10
-            ]
-            : [
-                "movement_name", entry[0], // $1, $2
-                "date", entry[1].date, // $3, $4
-                "weight", entry[1].weight, // $5, $6
-                "sets_completed", entry[1].sets, // $7, $8
-                "reps_completed", entry[1].reps, // $9, $10
-                "notes", entry[1].notes // $11, $12
-            ];
+app.post('/post/logprogress', async function (req, resp) {
+    /*
+    req.body --> array of logs
+    log should look like:
+        {
+            movement_name: 'Assisted Pull Up',
+            date: '2021-09-21',
+            weight: 54,
+            sets_completed: 3,
+            reps_completed: 8,
+            notes: null
+        }
+    */
+    
+    // get a list of the logs to compare against what is in req.body:
+    let logs;
+    try {
+        const response = await pool.query("SELECT * FROM logs");
+        const rows = await response.rows;
+        logs = await rectifyLogsDate(rows);
+        logs = logs.map(log => removeObjectKeyValuePairs(log, ["log_id"]))
+        logs = JSON.stringify(logs);
+    } catch (error) {
+        console.error(error.message);
+    }
+
+    const format = log => `(${log.slice(1, log.length - 1)})`;
+
+    let duplicates = [];
+    for (let reqLog of req.body) {
+        const copy = { // did this bc for whatever reason the DB returns the `weight` value as a string instead of a floating point number
+            ...reqLog,
+            weight: reqLog.weight.toString()
+        };
+        // check that the log isn't already in the DB:
+        if (logs.includes(JSON.stringify(copy))) {
+            const logValues = Object.values(reqLog);
+            duplicates.push(format(JSON.stringify(logValues)));
+            continue;
+        }
         try {
-            const queryPromise = await pool.query(queryString,queryParams);
-            resp.send("Successfully logged progress.")
+            const response = await pool.query(
+                "INSERT INTO logs(movement_name, date, weight, sets_completed, reps_completed, notes) VALUES ($1,$2,$3,$4,$5,$6)",
+                Object.values(reqLog)
+            );
         } catch (error) {
             console.error(error.message);
-            resp.send(error.message)   ;
+            resp.send(error.message);
         }
     }
+    const outString = (duplicates.length === 0)
+        ? "Successfully added log(s) to the database!"
+        : `Error: Duplicate logs. The following weren't added to the database:\n${JSON.stringify(duplicates, null, 2)}}`;
+    resp.send(outString);
 });
 
 app.put('/put/editlog', async function (req, resp) {
@@ -417,7 +462,7 @@ app.put('/put/editlog', async function (req, resp) {
         console.log("Error:", error.message);
         resp.send(error.message);
     }
-})
+});
 
 app.delete('/delete/log/:log_id', async function (req, resp) {
     try {
@@ -431,8 +476,42 @@ app.delete('/delete/log/:log_id', async function (req, resp) {
     } catch (error) {
         resp.send(error.message);
     }
+});
+
+////////////////////////////////
+////// STRENGTH STANDARDS //////
+////////////////////////////////
+
+app.get("/get/strengthstandards/:movement_name", async function (req, resp) {
+    console.log(req.params.movement_name);
+    const urls = await require("../src/strength-standards/urls.json");
+    if (req.params.movement_name === "urls") return resp.json(urls);
+
+    // tries to find the url in urls.json corresponding to the movement_name parameter
+    const found = urls.find(url => url.includes(req.params.movement_name));
+    console.log(found);
+    if (!found) {
+        return resp.json(`Error: '${req.params.movement_name}' isn't in 'urls.json'.`);
+    }
+
+    const { execSync } = require('child_process'); // syncronous 
+
+    let data;
+    try {
+        // the python script prints the JSON object, and the .toString picks that up and stores it in a variable
+        const command = await execSync(`python3 /Users/henrybrent/Documents/misc/react-project/src/strength-standards/strengthLevelsScraper.py ${found}`);
+        data = await JSON.parse(command.toString("utf-8"));
+    } catch (error) {
+        data = error.message;
+    }
+    console.log(data);
+
+    return resp.json(data);
 })
 
-app.listen(8090, () => {
-    console.log('Listening on http://localhost:8090'); 
+const port = process.env.REACT_APP_SERVER_PORT;
+
+app.listen(port, () => {
+    const url = process.env.REACT_APP_BASE_SERVER_URL;
+    console.log(`\nListening on ${url}:${port}\n`);
 });

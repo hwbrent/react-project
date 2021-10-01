@@ -19,3 +19,28 @@
     font-size: 16px;
     color: black;
 }
+
+#ManualLogTextArea {
+    resize: both;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    width: "100%"
+}
+
+#FormatLogWidget_output {
+    font-family: 'Source Code Pro', monospace;
+}
+
+#standardsMeanings {
+    font-size: 12px;
+}
+
+#SidebarLI {
+    color: blue;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#SidebarLI:hover {
+    cursor: pointer;
+}

@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { MainBody } from './components.js';
+import {
+    MainBody,
+    MovementSelect,
+    Sidebar
+} from './components.js';
+import {
+    rectifyLogsDate,
+    timeAdjust
+} from './functions.js';
 import Form from "@rjsf/core";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function AddMovement() { // all working now :)
     // maybe implement a feature whereby you can ask the user to confirm
@@ -783,27 +791,27 @@ function EditRoutine() {
     );
 }
 
-function RemoveRoutine() { // done I think. Haven't tested it tho
+function RemoveRoutine() { // Infinitely rerendering for some reason???
     const [ routineNames, setRoutineNames ] = useState([]);
     const [ chosenRoutine, setChosenRoutine ] = useState();
-
-    useEffect(() => { // to fetch the routine names to use in the <select> below
-        async function fetchData() {
-            console.log("Fetching routine names...")
-            const response = await fetch("http://localhost:8090/get/routinenames");
-            try {
-                const array = await response.json();
-                await setRoutineNames(array);
-                setChosenRoutine(routineNames[0])
-            } catch {
-                const errormessage = await response.text();
-                console.error(errormessage);
-            }
-        }
-        fetchData();
-    }, [])
+    const [ redundant, setRedundant ] = useState();
 
     const ChooseRoutineSelect = () => { // for the user to choose
+        useEffect(() => {
+            async function fetchData() {
+                console.log("Fetching routine names...")
+                const response = await fetch("http://localhost:8090/get/routinenames");
+                try {
+                    const array = await response.json();
+                    await setRoutineNames(array);
+                    // setChosenRoutine(routineNames[0])
+                } catch {
+                    const errormessage = await response.text();
+                    console.error(errormessage);
+                }
+            }
+            fetchData();
+        }, [redundant]);
         return (
             <label>
                 Choose a routine:
@@ -886,36 +894,29 @@ function EditLog() { // works. Want to implement collapsible scrollable table th
             async function fetchLogData() {
                 const response = await fetch("http://localhost:8090/get/alllogs");
                 const data = await response.json();
-                setLogs(data);
+                setLogs(rectifyLogsDate(data));
             }
             fetchLogData();
         },
         [chosenLog]
     );
 
-    const addHours = (dateString, h) => { // for some reason the date pulled from the API is adjusted (I think because of British Summer Time) so this ensures that the wrong date isn't showed in the table
-        const addHoursOperation = new Date(dateString).getTime() + (h*60*60*1000);
-        const newDate = new Date(addHoursOperation);
-        return newDate.toISOString().slice(0,10);
-    }
-
-    const tableRows = logs.map((log, key) => {
-        // console.log(log.date);
-        // console.log(new Date(log.date));
-        // console.log(addHours(log.date, 2));
-        // console.log(" ");
-        return (
-            <tr style={{cursor: "pointer"}} onClick={() => setChosenLog(log)} key={key}>
-                <th scope="row">{log.log_id}</th>
-                <td>{log.movement_name}</td>
-                <td>{addHours(log.date,2)}</td>
-                <td>{log.weight}</td>
-                <td>{log.sets_completed}</td>
-                <td>{log.reps_completed}</td>
-                <td>{log.notes}</td>
-            </tr>
-        );
-    });
+    const tableRows = (logs === undefined || logs === null)
+        ? null
+        : logs.map((log, key) => {
+            console.log(logs);
+            return (
+                <tr style={{cursor: "pointer"}} onClick={() => setChosenLog(log)} key={key}>
+                    <th scope="row">{log.log_id}</th>
+                    <td>{log.movement_name}</td>
+                    <td>{log.date}</td>
+                    <td>{log.weight}</td>
+                    <td>{log.sets_completed}</td>
+                    <td>{log.reps_completed}</td>
+                    <td>{log.notes}</td>
+                </tr>
+            );
+        });
 
     const table = (
         <>
@@ -1016,18 +1017,12 @@ function RemoveLog() {
             async function fetchLogData() {
                 const response = await fetch("http://localhost:8090/get/alllogs");
                 const data = await response.json();
-                setLogs(data);
+                setLogs(rectifyLogsDate(data));
             }
             fetchLogData();
         },
         [chosenLog]
     );
-
-    const addHours = (dateString, h) => { // for some reason the date pulled from the API is adjusted (I think because of British Summer Time) so this ensures that the wrong date isn't showed in the table
-        const addHoursOperation = new Date(dateString).getTime() + (h*60*60*1000);
-        const newDate = new Date(addHoursOperation);
-        return newDate.toISOString().slice(0,10);
-    }
 
     const handleClick = async () => {
         const confirmation = `Are you sure you want to delete this log:\n${JSON.stringify(chosenLog)}`;
@@ -1041,10 +1036,7 @@ function RemoveLog() {
     }
 
     const tableRows = logs.map((log, key) => {
-        // console.log(log.date);
-        // console.log(new Date(log.date));
-        // console.log(addHours(log.date, 2));
-        // console.log(" ");
+        console.log(logs);
         return (
             <tr key={key} style={{cursor: "pointer"}} onClick={
                 async () => {
@@ -1054,7 +1046,7 @@ function RemoveLog() {
             }>
                 <th scope="row">{log.log_id}</th>
                 <td>{log.movement_name}</td>
-                <td>{addHours(log.date,2)}</td>
+                <td>{timeAdjust(log.date,2)}</td>
                 <td>{log.weight}</td>
                 <td>{log.sets_completed}</td>
                 <td>{log.reps_completed}</td>
@@ -1088,83 +1080,38 @@ function RemoveLog() {
     return table;
 }
 
-const Sidebar = (props) => {
-    const bullets = ["Movements", "Routines", "Logs"].map((entity, key) => {
-        return (
-            <>
-                <li><b>{entity}</b></li>
-                <ul>
-                    {
-                    (entity === "Logs")
-                        ? <li><Link to="/logprogress"><i>Add {entity}</i></Link></li>
-                        : <li><a onClick={props.onClick} href="#"><i>Add {entity}</i></a></li>
-                    }
-                    <li>
-                        <a onClick={props.onClick} href="#">
-                            <i>Edit {entity}</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a onClick={props.onClick} href="#">
-                            <i>Remove {entity}</i>
-                        </a>
-                    </li>
-                </ul>
-            </>
-        )
-    });
-    return <ul>{bullets}</ul>;
-}
-
 export function SettingsPage() {
     useEffect(() => {document.title = "Settings"}, []);
+
+    const bullets = {
+        "Add Movements": <AddMovement />,
+        "Edit Movements": <EditMovement />,
+        "Remove Movements": <RemoveMovement />,
+        "Add Routines": <AddRoutine />,
+        "Edit Routines": <EditRoutine />,
+        // "Remove Routines": <RemoveRoutine />,
+        "Remove Routines": null,
+        "Add Logs": <Redirect to="/logprogress" />, // redirects the user to the LogProgress page
+        "Edit Logs": <EditLog />,
+        "Remove Logs": <RemoveLog />
+    };
     
     const [ settingsChoice, setSettingsChoice ] = useState("Choose an option from the sidebar to begin making changes");
 
-    const handleSidebarOnClick = ({target}) => {
-        switch (target.innerHTML) {
-            case "Add Movements":
-                setSettingsChoice(<AddMovement />);
-                break;
-
-            case "Edit Movements":
-                setSettingsChoice(<EditMovement />);
-                break;
-
-            case "Remove Movements":
-                setSettingsChoice(<RemoveMovement />);
-                break;
-
-            case "Add Routines":
-                setSettingsChoice(<AddRoutine />);
-                break;
-
-            case "Edit Routines":
-                setSettingsChoice(<EditRoutine />);
-                break;
-
-            case "Remove Routines":
-                setSettingsChoice(<RemoveRoutine />);
-                break;
-            // "Add Logs" case unneccessary since there's the 'Log Progress' page
-            case "Edit Logs":
-                setSettingsChoice(<EditLog />);
-                break;
-            
-            case "Remove Logs":
-                setSettingsChoice(<RemoveLog />);
-                break;
-            
-            default:
-                break;
-        }
-    };
+    const handleLIClick = (event) => {
+        const targetData = event.target.innerHTML;
+        setSettingsChoice(bullets[targetData]);
+    }
 
     return (
         <>
         <h1>Settings Page!!</h1>
         <MainBody
-            leftCol1={<Sidebar onClick={handleSidebarOnClick} />}
+            // leftCol1={<Sidebar onClick={handleSidebarOnClick} />}
+            leftCol1={<Sidebar
+                bullets={Object.keys(bullets)}
+                onClick={handleLIClick}
+            />}
             rightCol1={settingsChoice} />
         </>
     );
